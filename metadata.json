@@ -1,0 +1,8 @@
+{
+  "name": "Remix Remix KRYPTON - Third Eye for Crypto Fraud",
+  "description": "Andhra Pradesh State Cyber Security Bureau // AP CID VASP Detector for rapid tracing of illicit crypto wallet trails and direct freeze protocol generation under Section 91 CrPC.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

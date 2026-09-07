@@ -1,0 +1,256 @@
+@import "tailwindcss";
+@import "@xyflow/react/dist/style.css";
+
+@theme {
+  --font-sans: 'Sora', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --color-void-black: #050805;
+  --color-void-black-2: #0A110A;
+  --color-void-black-3: #0E1A0E;
+  --color-kryptonite-green: #39FF14;
+  --color-kryptonite-green-2: #00FF88;
+  --color-kryptonite-green-3: #7FFF67;
+  --color-toxic-purple: #9D00FF;
+  --color-toxic-purple-2: #7C3AED;
+  --color-toxic-purple-3: #B026FF;
+  --color-poison-pink: #FF00A8;
+}
+
+:root {
+  color-scheme: dark;
+  --void-black: #050805;
+  --void-black-2: #0A110A;
+  --void-black-3: #0E1A0E;
+  --kryptonite-green: #39FF14;
+  --kryptonite-green-2: #00FF88;
+  --kryptonite-green-3: #7FFF67;
+  --kryptonite-glow: rgba(57, 255, 20, 0.3);
+  --toxic-purple: #9D00FF;
+  --toxic-purple-2: #7C3AED;
+  --toxic-purple-3: #B026FF;
+  --toxic-glow: rgba(157, 0, 255, 0.3);
+  --poison-pink: #FF00A8;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: auto;
+  min-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #050805;
+  color: #f0fff0;
+  font-family: 'Sora', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Styled horizontal and vertical scrollbars */
+.scrollbar-thin::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 9999px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #22c55e;
+  border-radius: 9999px;
+  border: 1px solid rgba(34, 197, 94, 0.4);
+}
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #16a34a;
+}
+.scrollbar-thumb-green-500 {
+  scrollbar-color: #22c55e rgba(0, 0, 0, 0.6);
+  scrollbar-width: thin;
+}
+
+/* Glass Card Utility - Krypton Theme */
+.glass-card {
+  background: rgba(10, 25, 15, 0.6);
+  border: 1px solid rgba(57, 255, 20, 0.15);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: inset 0 1px 1px 0 rgba(57, 255, 20, 0.05);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(57, 255, 20, 0.35);
+  box-shadow: inset 0 1px 1px 0 rgba(57, 255, 20, 0.1), 0 0 24px rgba(57, 255, 20, 0.18);
+}
+
+.glass-pill {
+  background: rgba(10, 25, 15, 0.6);
+  border: 1px solid rgba(57, 255, 20, 0.2);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Primary Krypton Action Button */
+.btn-krypton-primary {
+  background: linear-gradient(135deg, #39FF14, #00FF88);
+  color: #050805;
+  font-weight: 700;
+  box-shadow: 0 0 20px rgba(57, 255, 20, 0.5);
+  transition: all 0.25s ease;
+}
+
+.btn-krypton-primary:hover {
+  box-shadow: 0 0 40px rgba(57, 255, 20, 0.7);
+  filter: brightness(1.05);
+}
+
+/* Secondary Toxic Purple Button */
+.btn-toxic-secondary {
+  border: 1px solid #9D00FF;
+  color: #9D00FF;
+  background: transparent;
+  transition: all 0.25s ease;
+}
+
+.btn-toxic-secondary:hover {
+  background: rgba(157, 0, 255, 0.12);
+  box-shadow: 0 0 25px rgba(157, 0, 255, 0.4);
+}
+
+/* Sonar Ring Animation */
+@keyframes sonar-expand-krypton {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.85;
+    border-color: #39FF14;
+  }
+  50% {
+    border-color: #9D00FF;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+    border-color: #39FF14;
+  }
+}
+
+.animate-sonar {
+  animation: sonar-expand-krypton 2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+/* Gradient Orbs Slow Drift */
+@keyframes float-orb-1 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(60px, 40px) scale(1.1);
+  }
+}
+
+@keyframes float-orb-2 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(-50px, -30px) scale(1.08);
+  }
+}
+
+.animate-orb-1 {
+  animation: float-orb-1 18s ease-in-out infinite;
+}
+
+.animate-orb-2 {
+  animation: float-orb-2 22s ease-in-out infinite;
+}
+
+/* Blinking Cursor */
+@keyframes blink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+.animate-cursor-blink {
+  animation: blink 0.9s infinite;
+}
+
+/* React Flow Dark Styling Customizations - Kryptonite */
+.react-flow__attribution {
+  display: none !important;
+}
+
+.react-flow__controls {
+  background: rgba(10, 25, 15, 0.85) !important;
+  border: 1px solid rgba(57, 255, 20, 0.3) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 20px rgba(57, 255, 20, 0.15) !important;
+  overflow: hidden;
+}
+
+.react-flow__controls-button {
+  background: transparent !important;
+  border-bottom: 1px solid rgba(57, 255, 20, 0.15) !important;
+  color: #39FF14 !important;
+  fill: #39FF14 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 28px !important;
+  height: 28px !important;
+  transition: all 0.2s ease !important;
+}
+
+.react-flow__controls-button:last-child {
+  border-bottom: none !important;
+}
+
+.react-flow__controls-button svg {
+  max-width: 14px !important;
+  max-height: 14px !important;
+  fill: currentColor !important;
+}
+
+.react-flow__controls-button:hover {
+  background: rgba(57, 255, 20, 0.15) !important;
+  color: #00FF88 !important;
+  fill: #00FF88 !important;
+  box-shadow: 0 0 10px rgba(57, 255, 20, 0.5) !important;
+}
+
+/* Faint Grid Pattern Green 0.02 opacity */
+.krypton-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(57, 255, 20, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(57, 255, 20, 0.035) 1px, transparent 1px);
+}
+
+/* Noise Texture Overlay */
+.grain-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+/* Shake Animation for Invalid Inputs */
+@keyframes krypton-shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  15%, 45%, 75% {
+    transform: translateX(-6px);
+  }
+  30%, 60%, 90% {
+    transform: translateX(6px);
+  }
+}
+
+.animate-shake {
+  animation: krypton-shake 0.45s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
